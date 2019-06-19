@@ -31,15 +31,15 @@ class Solution
 public:
     vector<int> twoSum(vector<int>& nums, int target)
     {
-        vector<int> results;
+        vector<int> results(2, -1);
         map<int, int> hash;
 
         for (int i = 0; i < nums.size(); ++i)
         {
             if (hash.find(target - nums[i]) != hash.end())
             {
-                results.push_back(hash[target - nums[i]]);
-                results.push_back(i);
+                results[0] = hash[target - nums[i]];
+                results[1] = i;
                 break;
             }
             else
@@ -50,4 +50,5 @@ public:
 
         return results;
     }
+
 };
